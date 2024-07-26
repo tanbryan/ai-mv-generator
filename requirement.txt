@@ -1,0 +1,7 @@
+openai==0.27.0
+pylrc==0.2.4
+requests==2.27.1
+pillow==8.3.2
+python-dotenv==0.19.2
+matplotlib==3.4.3
+opencv-python==4.5.5.64
