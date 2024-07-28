@@ -5,8 +5,6 @@
 Bryan Agents is an advanced multi-agent system designed for generating music videos based on lyrics. This project analyzes the lyrics and creates story-like images to generate an image-to-image music video. The system leverages the OpenAI API, specifically the GPT-4o model for text processing and the DALL-E 3 model for image generation, to provide an end-to-end solution for video content creation.
 
 
-**Important:** This project only creates a background music video with no audio output. To create the best MV with audio and scrolling subtitles, please clone https://github.com/tanbryan/scrolling-lyrics-generator this repo and follow the guidelines from there after this MV video is created.
-
 ## Features
 
 - **Lyric Analyze Agent**: Analyzes lyrics and groups them for further processing.
@@ -14,7 +12,7 @@ Bryan Agents is an advanced multi-agent system designed for generating music vid
 - **Prompt Agent**: Generates detailed prompts for creating music video background images using GPT-4o model.
 - **Image Agent**: Creates images based on the generated prompts using DALL-E 3 model.
 - **Logo Agent**: Generates logos with various effects.
-- **Video Agent**: Compiles the generated images and logos into a final video.
+- **Video Agent**: Compiles the generated images, logos, and scorlling lyrics into a final video.
 
 ## Prerequisites
 
@@ -98,8 +96,9 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Run the main script:**
 
-    Ensure that the lyrics file (.lrc) is located within a dedicated directory. 
-    Go into the main script `runner.py` and add your complete path to the lyrics file:
+    Ensure that the lyrics file (.lrc) and music file (.mp3) are located within a dedicated directory. 
+    ❗️Please make sure both files are named in the format of 'SongName-ArtistName.lrc or .mp3'
+    Go into the main script `runner.py` and add your complete paths to both files:
     Then run: 
 
     ```bash
@@ -130,10 +129,7 @@ Before you begin, ensure you have met the following requirements:
 
 In the `test` directory, you will find sample outputs based on the "Love Story" by Taylor Swift lyrics file:
 
-- `background.mp4`: The final generated video.
-
-https://github.com/user-attachments/assets/daa97090-5dba-4249-901f-d73835d0721d
-
+- `LoveStory-TaylorSwift.mp4`: The final generated video.
 - `generated_prompts.json`: The JSON file containing the detailed prompts generated for the images.
 - `logo.png`: The generated logo for the music video.
 - `results.json`: The JSON file containing the results from each agent.

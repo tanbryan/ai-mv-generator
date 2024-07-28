@@ -19,10 +19,10 @@
             "And my daddy said",
             "Stay away from Juliet",
             "And I was crying on the staircase",
-            "Begging you, Please dont go,"
+            "Begging you, Please dont go,",
+            "And I said"
         ],
         "3": [
-            "And I said",
             "Romeo, take me",
             "Somewhere we can be alone",
             "I will be waiting",
@@ -45,10 +45,10 @@
             "Stay away from Juliet",
             "But you were everything to me",
             "I was begging you",
-            "Please dont go"
+            "Please dont go",
+            "And I said"
         ],
         "6": [
-            "And I said",
             "Romeo, take me",
             "Somewhere we can be alone",
             "I will be waiting",
@@ -83,10 +83,10 @@
             "Is this in my head?",
             "I dont know what to think",
             "He knelt to the ground and pulled out a ring",
-            "And said",
-            "Marry me, Juliet"
+            "And said"
         ],
         "10": [
+            "Marry me, Juliet",
             "You will never have to be alone",
             "I love you and that is all I really know",
             "I talked to your dad",
@@ -118,10 +118,10 @@
             11,
             12,
             13,
-            14
+            14,
+            15
         ],
         [
-            15,
             16,
             17,
             18,
@@ -144,10 +144,10 @@
             31,
             32,
             33,
-            34
+            34,
+            35
         ],
         [
-            35,
             36,
             37,
             38,
@@ -182,10 +182,10 @@
             61,
             62,
             63,
-            64,
-            65
+            64
         ],
         [
+            65,
             66,
             67,
             68,
