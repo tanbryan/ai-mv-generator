@@ -34,13 +34,10 @@ def is_file_valid(file_path):
             return False
         cap = cv2.VideoCapture(file_path)
         if not cap.isOpened():
-            print(f"❌ Error: The specified file could not be opened: {file_path}")
             return False
         cap.release()
         return True
     except Exception as e:
-        print(f"❌ Error: An error occurred while trying to open the file: {file_path}")
-        print(f"Exception: {e}")
         return False
 
 def parse_response_content(response_content):

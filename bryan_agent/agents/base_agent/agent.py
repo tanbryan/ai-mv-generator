@@ -32,12 +32,13 @@ class BaseAgent:
 
     def check_activity(self):
         while True:
-            if time.time() - self.last_activity_time > 60:  # Check if more than 1 min
-                print("❗️No activity detected for a long time. Please rerun the program.")
-                sys.exit(0)  
+            if time.time() - self.last_activity_time > 600:  # Check if more than 10 min
+                sys.stdout.write("\r\033[K")
+                print("❗️ No activity detected for a long time. Please rerun the program.")
+                os._exit(0)  
             time.sleep(10)
 
-    def run(self, lrc):
+    def run(self, lrc, mp3):
         start_activity_checker(self) 
 
         results_file = os.path.join(os.path.dirname(lrc), 'results.json')
@@ -61,7 +62,7 @@ class BaseAgent:
                     elif isinstance(agent, LogoAgent):
                         agent.run(lrc, dic, self.results.get('base_style_settings', None))
                     elif isinstance(agent, VideoAgent):
-                        agent.run(dic, lrc)
+                        agent.run(dic, lrc, mp3)
                     self.last_activity_time = time.time() 
                 except Exception as e:
                     print(f"❌ An error occurred while running {agent.__class__.__name__}: {e}")

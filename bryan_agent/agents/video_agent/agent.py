@@ -9,6 +9,7 @@ class VideoAgent:
         self.stop_loading = False
         self.video = CreateVideo(self.name)
 
-    def run(self, dic: dict, lrc: str):
+    def run(self, dic: dict, lrc: str, mp3: str):
         input_txt = self.video.write_input(lrc, dic)
-        self.video.create_video(input_txt, lrc, settings)
+        self.video.final_video(input_txt, lrc, mp3, settings)
+        
