@@ -4,7 +4,6 @@
 
 Bryan Agents is an advanced multi-agent system designed for generating music videos based on lyrics. This project analyzes the lyrics and creates story-like images to generate an image-to-image music video. The system leverages the OpenAI API, specifically the GPT-4o model for text processing and the DALL-E 3 model for image generation, to provide an end-to-end solution for video content creation.
 
-
 ## Features
 
 - **Lyric Analyze Agent**: Analyzes lyrics and groups them for further processing.
@@ -113,7 +112,7 @@ Before you begin, ensure you have met the following requirements:
     - **PromptAgent**: Generates detailed prompts for creating music video background images. The script will pause after generating the prompts for you to review them in the generated JSON file. Once reviewed, press Enter to continue.
     - **ImageAgent**: Creates images based on the generated prompts and saves them in the specified directory.
     - **LogoAgent**: Generates logos with various effects.
-    - **VideoAgent**: Compiles the generated images and logos into a final video.
+    - **VideoAgent**: Compiles the background and scrolling lyrics into a final video.
 
     During the execution, an `agent_status.json` file will be created in the base_agent directory. This file keeps track of the status of each agent. If any agent completes, its status will be set to `true`. You can always set the status to `false` to rerun a specific agent if needed.
 
@@ -127,9 +126,10 @@ Before you begin, ensure you have met the following requirements:
     
 ## Test Directory
 
-In the `test` directory, you will find sample outputs based on the "Love Story" by Taylor Swift lyrics file:
+In the `test` directory, after running, you will find sample outputs based on the "Love Story" by Taylor Swift lyrics file:
 
 - `LoveStory-TaylorSwift.mp4`: The final generated video.
+- `background.mp4`: Clean pre generated background video.
 - `generated_prompts.json`: The JSON file containing the detailed prompts generated for the images.
 - `logo.png`: The generated logo for the music video.
 - `results.json`: The JSON file containing the results from each agent.
