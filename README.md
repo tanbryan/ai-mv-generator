@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Bryan Agents is an advanced multi-agent system designed for generating music videos based on lyrics. This project analyzes the lyrics and creates detailed prompts based on the analysis results to generate story-like images, ultimately producing an image-to-image music video. The system leverages the OpenAI API, specifically the GPT-4 model for text processing and the DALL-E 3 model for image generation, to provide an end-to-end solution for video content creation.
+Bryan Agents is an advanced multi-agent system designed for generating music videos based on lyrics. This project analyzes the lyrics and creates detailed prompts based on the analysis results to generate story-like images, ultimately producing an image-to-image music video. The system leverages the OpenAI API, specifically the GPT-4o model for text processing and the DALL-E 3 model for image generation, to provide an end-to-end solution for video content creation.
 
 ## Features
 
