@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from bryan_agent.agents.base_agent.agent import BaseAgent
 from bryan_agent.agents.lyric_analyze_agent.agent import LyricAnalyzeAgent
@@ -24,8 +24,8 @@ def main(lyrics_text_file, audio_file):
 
 if __name__ == '__main__':
     ### replace the path with the path to the lyrics file
-    lrc_file_complete_path = ""
-    mp3_file_complete_path = ""
+    lrc_file_complete_path = "/path/to/your/.lrc"
+    mp3_file_complete_path = "/path/to/your/.mp3"
     main(lrc_file_complete_path, mp3_file_complete_path)
 
 

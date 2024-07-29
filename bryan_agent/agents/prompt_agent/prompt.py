@@ -4,6 +4,8 @@ base_prompt = """
 The following are the full lyrics of a song to provide context:
 {full_lyrics}
 These lyrics will be used to generate detailed prompts for creating music video background images. 
+The prompts should be based on the lyrics and maintain logical continuity between images.
+The sequence of prompts should be presenting a story or a series of related scenes.
 Only return the detailed prompts without any other information.
 Ensure that all the images generated have a consistent style and color scheme as per the base style settings provided.
 """
