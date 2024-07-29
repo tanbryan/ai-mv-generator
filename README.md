@@ -129,7 +129,10 @@ Before you begin, ensure you have met the following requirements:
 In the `test` directory, after running, you will find sample outputs based on the "Love Story" by Taylor Swift lyrics file:
 
 - `LoveStory-TaylorSwift.mp4`: The preview of the final generated video.
-https://github.com/user-attachments/assets/fc289b1c-98e2-46c9-90ee-ff02fb145607
+  
+
+https://github.com/user-attachments/assets/751f7692-0b5c-47c6-8832-540aa4e42bf0
+
 
 - `background.mp4`: Clean pre generated background video.
 - `generated_prompts.json`: The JSON file containing the detailed prompts generated for the images.
