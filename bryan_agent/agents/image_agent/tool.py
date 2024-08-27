@@ -12,44 +12,42 @@ from bryan_agent.utils.io import resize_image
 class ImageGenerator:
     def __init__(self, agent_name):
         self.agent_name = agent_name
-        self.stop_loading = [False]
+        self.stop_loading = [False] 
 
     def generate_images(self, lrc, resolution):
         width, height = map(int, resolution.split(":"))
         image_save_directory = os.path.join(os.path.dirname(lrc), 'background_images')
         prompts_file = os.path.join(os.path.dirname(lrc), 'generated_prompts.json')
 
-        if not os.path.exists(image_save_directory):
-            os.makedirs(image_save_directory)
-
         with open(prompts_file, 'r') as file:
             prompts_data = json.load(file)
-        
         # Generate images
-        try:
-            for section_idx, section_prompts in enumerate(prompts_data):
-                print(f"⌛️ Generating images for section {section_idx + 1}...")
-                loading_thread = log_with_loading(self.agent_name, "generating images", self.stop_loading)
-                self.process_prompts(lrc, section_idx, section_prompts, width, height)
-        except openai.error.OpenAIError as e:
-            print(f"❌ OpenAI API error: {e}")
-        finally:
-            log_completion(self.agent_name, self.stop_loading, loading_thread)
+        if not os.path.exists(image_save_directory):
+            try:
+                for section_idx, section_prompts in enumerate(prompts_data):
+                    print(f"⌛️ Generating image for section {section_idx + 1}...")
+                    loading_thread = log_with_loading(self.agent_name, "generating images", self.stop_loading)
+                    self.process_prompts(lrc, section_idx, prompts_data, width, height)
+            except openai.error.OpenAIError as e:
+                print(f"❌ OpenAI API error: {e}")
+            finally:
+                log_completion(self.agent_name, self.stop_loading, loading_thread)
 
         # If folder exists, check for missing or invalid images
-        try:
-            missing_or_invalid_images = self.check_missing_images(lrc, prompts_data, width, height)
-            if missing_or_invalid_images:
-                self.regenerate_images(lrc, missing_or_invalid_images, prompts_data, width, height)
-        except openai.error.OpenAIError as e:
-            print(f"❌ OpenAI API error: {e}")
-
+        else:
+            try:
+                missing_or_invalid_images = self.check_missing_images(lrc, prompts_data, width, height)
+                if missing_or_invalid_images:
+                    self.regenerate_images(lrc, missing_or_invalid_images, prompts_data, width, height)
+            except openai.error.OpenAIError as e:
+                print(f"❌ OpenAI API error: {e}")
+            
         # Ask for user satisfaction
         self.ask_user_for_satisfaction(lrc, len(prompts_data), prompts_data, width, height)
 
     def process_prompts(self, lrc, section_idx, prompts, width, height):
-        for sub_idx, individual_prompt in enumerate(prompts):
-            prompt_text = individual_prompt
+        for sub_idx, individual_prompt in enumerate(prompts[section_idx]):
+            prompt_text = ' '.join(individual_prompt)
             img = create_image_prompt(prompt_text)
             if img:
                 self.save_image(lrc, section_idx, sub_idx, img, width, height)
@@ -78,7 +76,7 @@ class ImageGenerator:
     def regenerate_images(self, lrc, missing_or_invalid_images, prompts_data, width, height):
         loading_thread = log_with_loading(self.agent_name, "regenerating images", self.stop_loading)
         for section_idx, prompt_idx in missing_or_invalid_images:
-            prompt_text = prompts_data[section_idx][prompt_idx]
+            prompt_text = ''.join(prompts_data[section_idx][prompt_idx])
             img = create_image_prompt(prompt_text)
             if img:
                 self.save_image(lrc, section_idx, prompt_idx, img, width, height)
@@ -103,3 +101,4 @@ class ImageGenerator:
                     print("❌ Invalid input format. Please enter in the format section_image (e.g., 1_2).")
             else:
                 print("❌ Invalid input. Please enter 'y' or 'n'.")
+
